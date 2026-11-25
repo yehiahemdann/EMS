@@ -4,8 +4,9 @@
  */
 package Model;
 
+import java.io.Serializable;
 
-public abstract class Employee {
+public abstract class Employee implements Serializable{
     
     private int employeeID;
     private String fullName;

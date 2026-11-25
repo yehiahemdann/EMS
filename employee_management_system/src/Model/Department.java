@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
+import java.io.Serializable;
 
-public class Department {
+
+public class Department implements Serializable{
     
     private int departmentID;
     private String departmentName;
