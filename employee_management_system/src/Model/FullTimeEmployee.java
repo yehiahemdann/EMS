@@ -8,6 +8,36 @@ package Model;
  *
  * @author YEHIA
  */
-public class FullTimeEmployee {
-    
+public class FullTimeEmployee extends Employee {
+
+    private double basicSalary;
+    private double bonus;
+
+    public FullTimeEmployee(int employeeID, String fullName, int age, String position, Department departement, double basicSalary, double bonus) {
+        super(employeeID, fullName, age, position, departement);
+        this.basicSalary = basicSalary;
+        this.bonus = bonus;
+    }
+
+    public double getBasicSalary() {
+        return basicSalary;
+    }
+
+    public void setBasicSalary(double basicSalary) {
+        this.basicSalary = basicSalary;
+    }
+
+    public double getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return basicSalary + bonus;
+    }
+
 }
