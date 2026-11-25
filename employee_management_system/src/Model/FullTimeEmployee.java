@@ -4,10 +4,7 @@
  */
 package Model;
 
-/**
- *
- * @author YEHIA
- */
+
 public class FullTimeEmployee extends Employee {
 
     private double basicSalary;

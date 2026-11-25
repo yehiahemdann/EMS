@@ -11,14 +11,14 @@ public abstract class Employee {
     private String fullName;
     private int age;
     private String position;
-    private Department departement;
+    private Department department;
 
     public Employee(int employeeID, String fullName, int age, String position, Department departement) {
         this.employeeID = employeeID;
         this.fullName = fullName;
         this.age = age;
         this.position = position;
-        this.departement = departement;
+        this.department = department;
     }
 
     public int getEmployeeID() {
@@ -53,12 +53,12 @@ public abstract class Employee {
         this.position = position;
     }
 
-    public Department getDepartement() {
-        return departement;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartement(Department departement) {
-        this.departement = departement;
+    public void setDepartment(Department departement) {
+        this.department = department;
     }
     
     public abstract double calculateSalary();
