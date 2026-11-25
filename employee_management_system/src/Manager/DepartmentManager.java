@@ -6,13 +6,14 @@ package Manager;
 
 import java.util.ArrayList;
 import Model.Department;
+import data.FileHandler;
 
 public class DepartmentManager {
 
     private ArrayList<Department> departments;
 
     public DepartmentManager() {
-        departments = new ArrayList<>();
+        departments = FileHandler.loadDepartments();
     }
 
     // Check if Department ID is unique
@@ -47,6 +48,8 @@ public class DepartmentManager {
         }
 
         departments.add(department);
+        FileHandler.saveDepartments(departments);
+
         return true;
     }
 
@@ -79,7 +82,10 @@ public class DepartmentManager {
     public boolean deleteDepartment(int id) {
         for (int i = 0; i < departments.size(); i++) {
             if (departments.get(i).getDepartmentID() == id) {
+                
                 departments.remove(i);
+                FileHandler.saveDepartments(departments);
+
                 return true;
             }
         }

@@ -6,13 +6,14 @@ package Manager;
 
 import java.util.ArrayList;
 import Model.Employee;
+import data.FileHandler;
 
 public class EmployeeManager {
 
     private ArrayList<Employee> employees;
 
     public EmployeeManager() {
-        employees = new ArrayList<>();
+        employees = FileHandler.loadEmployees();       // load the array every time the program runs not creating new one every time
     }
 
     // Check if Employee ID is unique
@@ -31,6 +32,7 @@ public class EmployeeManager {
             return false;
         }
         employees.add(employee);
+        FileHandler.saveEmployees(employees);
         return true;
     }
 
@@ -79,6 +81,7 @@ public class EmployeeManager {
                 }
 
                 employees.set(i, updatedEmployee);
+                FileHandler.saveEmployees(employees);
 
                 return true;
             }
@@ -92,6 +95,9 @@ public class EmployeeManager {
         for (int i = 0; i < employees.size(); i++) {
             if (employees.get(i).getEmployeeID() == id) {
                 employees.remove(i);
+                
+                FileHandler.saveEmployees(employees);
+                
                 return true;
             }
         }
